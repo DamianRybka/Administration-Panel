@@ -45,11 +45,22 @@ public class UserController {
 
     }
 
-    public String updateUserEmail(int id, String email) {
+    @PUT
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("update/{id}")
+    public String updateUserEmail(@PathParam("id") int id,@FormParam("email") String email) {
 
         UserDao.updateUserEmail(id, email);
 
         return "email updated!";
+    }
+    @DELETE
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("delete/{id}")
+    public String deleteUser(@PathParam("id") int id) {
+        UserDao.deleteUser(id);
+        return "User " + id + " deleted!";
     }
 
 }

@@ -1,5 +1,8 @@
 package Panel;
 
+import javax.ws.rs.DELETE;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,5 +25,9 @@ public class UserDao {
     public static void updateUserEmail(int id, String email) {
         users.get(id).setEmail(email);
 
+    }
+
+    public static void deleteUser(int id) {
+        users.remove(id);
     }
 }
